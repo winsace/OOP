@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timesheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input[type="time"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #totalHours {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Timesheet</h2>
+        <form id="timesheetForm">
+            <label for="timeIn">Time In:</label>
+            <input type="time" id="timeIn" name="timeIn" required>
+
+            <label for="timeOut">Time Out:</label>
+            <input type="time" id="timeOut" name="timeOut" required>
+
+            <button type="button" onclick="calculateWorkedHours()">Submit</button>
+        </form>
+        <p id="totalHours">Total Worked Hours: <span id="workedHours">0</span></p>
+    </div>
+
+    <script>
+        function calculateWorkedHours() {
+            const timeIn = document.getElementById('timeIn').value;
+            const timeOut = document.getElementById('timeOut').value;
+
+            const timeInParts = timeIn.split(':').map(part => parseInt(part));
+            const timeOutParts = timeOut.split(':').map(part => parseInt(part));
+
+            const totalMinutesIn = (timeInParts[0] * 60) + timeInParts[1];
+            const totalMinutesOut = (timeOutParts[0] * 60) + timeOutParts[1];
+
+            let workedMinutes = totalMinutesOut - totalMinutesIn;
+
+            if (workedMinutes < 0) {
+                workedMinutes += 24 * 60;
+            }
+
+            const workedHours = Math.floor(workedMinutes / 60);
+            const workedMinutesRemainder = workedMinutes % 60;
+
+            const workedHoursString = workedHours < 10 ? '0' + workedHours : workedHours;
+            const workedMinutesString = workedMinutesRemainder < 10 ? '0' + workedMinutesRemainder : workedMinutesRemainder;
+
+            document.getElementById('workedHours').textContent = `${workedHoursString}:${workedMinutesString}`;
+        }
+    </script>
+</body>
+</html>
