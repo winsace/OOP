@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-96">
+        <h1 class="text-2xl font-bold text-center mb-4">Employee Search</h1>
+        <div class="flex items-center mb-4">
+            <label for="searchType" class="mr-2">Search By:</label>
+            <select id="searchType" class="border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-500">
+                <option value="id">Employee ID</option>
+                <option value="email">Email Address</option>
+            </select>
+        </div>
+        <div class="flex items-center mb-4">
+            <input type="text" id="searchInput" class="border border-gray-300 rounded px-4 py-2 flex-1 focus:outline-none focus:border-blue-500" placeholder="Enter ID or Email">
+            <button id="searchButton" class="bg-blue-500 text-white px-4 py-2 rounded ml-2">Search</button>
+        </div>
+        <p id="errorText" class="text-red-500 hidden mb-4 text-center">Error: No employee found or no search criteria entered.</p>
+    </div>
+
+    <script src="employee-management.js"></script>
+</body>
+</html>

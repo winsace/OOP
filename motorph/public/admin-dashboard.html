@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="bg-gray-800 text-white w-1/4 flex flex-col justify-between">
+            <div class="py-4 px-6">
+                <h1 class="text-2xl font-bold text-center">Admin Dashboard</h1>
+                <ul class="mt-6 space-y-4">
+                    <li><a href="#" onclick="showDashboard()" class="block hover:bg-gray-700 py-2 px-4">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="loadEmployeeManagement()" class="block hover:bg-gray-700 py-2 px-4">Employee Management</a></li>
+                    <li><a href="#" class="block hover:bg-gray-700 py-2 px-4">Tickets</a></li>
+		    <li><a href="#" class="block hover:bg-gray-700 py-2 px-4">Timesheet</a></li>
+                    <li><a href="#" class="block hover:bg-gray-700 py-2 px-4">Leave</a></li>
+                    <li><a href="#" class="block hover:bg-gray-700 py-2 px-4">Payslip</a></li> <!-- Added Payslip component -->
+                </ul>
+            </div>
+            <div class="py-4 px-6">
+                <button id="logoutButton" class="block hover:bg-gray-700 py-2 px-4" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div id="mainContent" class="flex-1 p-8">
+            <!-- Main content goes here -->
+            <h2 id="welcomeMessage" class="text-3xl font-bold text-center">Welcome to MotorPH Admin Dashboard</h2>
+            <div id="clock" class="text-center mt-4"></div>
+        </div>
+    </div>
+
+    <!-- Logout confirmation modal -->
+    <div id="logoutModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-4 rounded-md">
+            <p class="text-lg text-center">Are you sure you want to sign out?</p>
+            <div class="mt-4 flex justify-center">
+                <button id="confirmLogout" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" onclick="confirmLogout()">Yes</button>
+                <button id="cancelLogout" class="bg-gray-300 px-4 py-2 rounded-md" onclick="cancelLogout()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>
