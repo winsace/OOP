@@ -1,11 +1,32 @@
+// Function to toggle submenu
+function toggleSubMenu(subMenuId) {
+    const subMenu = document.getElementById(subMenuId);
+    const allSubMenus = document.querySelectorAll('.nested');
+
+    // Collapse all submenus except the one clicked
+    allSubMenus.forEach(menu => {
+        if (menu !== subMenu && menu.classList.contains('active')) {
+            menu.classList.remove('active');
+        }
+    });
+
+    // Toggle the clicked submenu
+    subMenu.classList.toggle('active');
+}
+
 // Function to load Employee Management iframe
 function loadEmployeeManagement() {
     document.getElementById('mainContent').innerHTML = '<iframe src="employee-management.html" class="w-full h-full border-none"></iframe>';
 }
 
+// Function to load Ticket Management iframe
+function loadTicketManagement() {
+    document.getElementById('mainContent').innerHTML = '<iframe src="ticket.html" class="w-full h-full border-none"></iframe>';
+}
+
 // Function to show welcome message and clock
 function showDashboard() {
-    document.getElementById('mainContent').innerHTML = '<h2 id="welcomeMessage" class="text-3xl font-bold text-center">Welcome to MotorPH Admin Dashboard</h2><div id="clock" class="text-center mt-4"></div>';
+    document.getElementById('mainContent').innerHTML = '<h2 id="welcomeMessage" class="text-3xl font-bold text-center">Welcome to Admin Dashboard</h2><div id="clock" class="text-center mt-4"></div>';
     showClock();
 }
 
@@ -30,7 +51,7 @@ function confirmLogout() {
     // Implement your logout logic here
     // For example, you can redirect to index.html
     window.location.href = "index.html";
-// Prevent going back to admin dashboard page
+    // Prevent going back to admin dashboard page
     window.history.pushState(null, "", "index.html");
 }
 

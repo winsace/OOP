@@ -1,0 +1,14 @@
+// admin-dashboard.js
+function loadTicketComponent() {
+    const mainContent = document.getElementById("mainContent");
+    mainContent.innerHTML = "";
+    fetch("ticket.html")
+        .then(response => response.text())
+        .then(html => {
+            mainContent.innerHTML = html;
+            const script = document.createElement("script");
+            script.src = "ticket.js";
+            mainContent.appendChild(script);
+        })
+        .catch(error => console.error("Error loading ticket component:", error));
+}
