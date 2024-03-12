@@ -24,11 +24,6 @@ function loadTicketManagement() {
     document.getElementById('mainContent').innerHTML = '<iframe src="ticket.html" class="w-full h-full border-none"></iframe>';
 }
 
-// Function to load "leave.html" for submitting leave request
-function submitLeaveRequest() {
-    document.getElementById('mainContent').innerHTML = '<iframe src="leave.html" class="w-full h-full border-none"></iframe>';
-}
-
 // Function to show welcome message and clock
 function showDashboard() {
     document.getElementById('mainContent').innerHTML = '<h2 id="welcomeMessage" class="text-3xl font-bold text-center">Welcome to Admin Dashboard</h2><div id="clock" class="text-center mt-4"></div>';

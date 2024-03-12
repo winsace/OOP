@@ -18,6 +18,11 @@ function viewMyLeaveRequest() {
     document.getElementById('mainContent').innerHTML = '<h2 id="welcomeMessage" class="text-3xl font-bold text-center">My Leave Request</h2><div id="leaveRequestContent" class="text-center mt-4">Your leave request information goes here.</div>';
 }
 
+// Function to submit Leave Request
+function submitLeaveRequest() {
+    // Implement your leave request submission logic here
+    alert('Leave request submitted successfully!');
+}
 
 // Function to view My Payslip
 function viewMyPayslip() {
@@ -85,11 +90,6 @@ function showClock() {
 // Function to load "ticket.html" for creating service ticket request
 function loadTicketManagement() {
     document.getElementById('mainContent').innerHTML = '<iframe src="ticket.html" class="w-full h-full border-none"></iframe>';
-}
-
-// Function to load "leave.html" for submitting leave request
-function submitLeaveRequest() {
-    document.getElementById('mainContent').innerHTML = '<iframe src="leave.html" class="w-full h-full border-none"></iframe>';
 }
 
 // Show welcome message and clock when the page loads
