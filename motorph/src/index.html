@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotorPH™ | OneSuite </title>
+    <!-- Link to Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* global 94%+ browsers support */
+        body {
+            background: linear-gradient(90deg, rgba(76, 175, 80, 1) 0%, rgba(49, 220, 255, 1) 100%);
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 2px;
+            font-size: 0.8rem;
+        }
+
+        .popup-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            width: 80%; /* Adjust the width as desired */
+            max-width: 500px; /* Set maximum width */
+            height: auto; /* Automatically adjust height based on content */
+            max-height: 80%; /* Set maximum height */
+            box-sizing: border-box;
+            display: none; /* initially hidden */
+        }
+
+        .copyright {
+            font-size: 0.6rem; /* smaller font size */
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex justify-center items-center h-screen">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-3xl mb-6">MotorPH™ <span class="font-bold">|</span> OneSuite <span class="text-sm">v2.0.1</span></h1>
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700">Username:</label>
+                    <input type="text" id="username" name="username" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                    <div id="usernameError" class="error-message"></div>
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password:</label>
+                    <input type="password" id="password" name="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                    <div id="passwordError" class="error-message"></div>
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 mt-4">Login</button>
+                <a href="#" id="forgotPasswordLink" class="text-blue-500 text-sm mt-2 block">Forgot password?</a>
+            </form>
+            <div class="popup-container" id="passwordResetPopup">
+                <h2 class="text-2xl mb-4">Password Reset</h2>
+                <p class="mb-4">To reset your password, enter your username below.</p>
+                <form id="passwordResetForm" class="space-y-4">
+                    <div>
+                        <label for="resetUsername" class="block text-sm font-medium text-gray-700">Username:</label>
+                        <input type="text" id="resetUsername" name="resetUsername" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                        <div id="resetUsernameError" class="error-message"></div>
+                    </div>
+                    <div class="flex justify-between">
+                        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Submit</button>
+                        <button id="cancelResetButton" type="button" class="w-full ml-2 bg-gray-200 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 transition duration-300">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2024 MotorPH All Rights Reserved.</p>
+                <p>Trademarks owned by MotorPH.</p>
+                <p>Legal Notices Privacy Policy Acceptable Use Policy</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="index.js"></script>
+</body>
+</html>
