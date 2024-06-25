@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timesheet Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 8px;
+            text-align: left;
+        }
+        tbody {
+            display: block;
+            height: 200px; /* Default height for the table */
+            overflow-y: auto;
+        }
+        .select-wrapper {
+            flex: 1; /* Equal width for all select wrappers */
+            margin-right: 10px; /* Adjust the right margin */
+        }
+        .search-btn {
+            margin-top: 25px; /* Adjust the top margin */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+    <div class="bg-white shadow-md rounded p-4 max-w-3xl w-full">
+        <h1 class="text-center text-2xl font-semibold mb-4">Timesheet Manager</h1>
+        <div class="flex mb-4">
+            <div class="select-wrapper">
+                <label for="employeeSelect" class="block text-sm font-medium text-gray-700">Select Employee:</label>
+                <select id="employeeSelect" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    <!-- Options will be dynamically inserted here -->
+                </select>
+            </div>
+            <div class="select-wrapper">
+                <label for="fromDateInput" class="block text-sm font-medium text-gray-700">From Date:</label>
+                <input type="date" id="fromDateInput" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <div class="select-wrapper">
+                <label for="toDateInput" class="block text-sm font-medium text-gray-700">To Date:</label>
+                <input type="date" id="toDateInput" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <button id="searchBtn" class="search-btn bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">Search</button>
+        </div>
+        <div id="timesheetTable">
+            <table>
+                <thead>
+                    <tr id="tableHeader">
+                        <!-- Header will be dynamically inserted here -->
+                    </tr>
+                </thead>
+                <tbody id="timesheetTableBody">
+                    <!-- Timesheet data will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="timesheetmanager.js"></script>
+</body>
+</html>
