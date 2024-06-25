@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Employee</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <div class="text-center"> <!-- Center the heading -->
+            <h1 class="text-3xl font-semibold mb-4">Create Employee</h1>
+        </div>
+        <form id="createEmployeeForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-auto max-w-md">
+            <!-- Form fields -->
+            <!-- Employee ID -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="employeeID">Employee ID:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="employeeID" name="employeeID" type="text" required>
+            </div>
+            <!-- Last Name -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="lastName">Last Name:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="lastName" name="lastName" type="text" required>
+            </div>
+            <!-- First Name -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="firstName">First Name:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="firstName" name="firstName" type="text" required>
+            </div>
+            <!-- Birthday -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="birthday">Birthday:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="birthday" name="birthday" type="date" required>
+            </div>
+            <!-- Address -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="address">Address:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address" name="address" type="text" required>
+            </div>
+            <!-- Phone Number -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="phoneNumber">Phone Number:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phoneNumber" name="phoneNumber" type="text" required>
+            </div>
+            <!-- SSS -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="sss">SSS:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sss" name="sss" type="text" required>
+            </div>
+            <!-- PhilHealth -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="philhealth">PhilHealth:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="philhealth" name="philhealth" type="text" required>
+            </div>
+            <!-- TIN -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="tin">TIN:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="tin" name="tin" type="text" required>
+            </div>
+            <!-- Pag-IBIG -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="pagibig">Pag-IBIG:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pagibig" name="pagibig" type="text" required>
+            </div>
+            <!-- Status -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="status">Status:</label>
+                <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="status" name="status" required>
+                    <option value="">Select Status</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Probationary">Probationary</option>
+                </select>
+            </div>
+            <!-- Position -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="position">Position:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="position" name="position" type="text" required>
+            </div>
+            <!-- Immediate Supervisor -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="immediateSupervisor">Immediate Supervisor:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="immediateSupervisor" name="immediateSupervisor" type="text" required>
+            </div>
+            <!-- Submit Button -->
+            <div class="flex items-center justify-between">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="submitBtn" type="submit">Submit</button>
+                <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="resetBtn" type="button">Reset</button>
+            </div>
+        </form>
+        <div id="message" class="text-center text-red-500 font-bold mt-4"></div>
+    </div>
+    <!-- Include the JavaScript file -->
+    <script src="create-employee.js"></script>
+</body>
+</html>
