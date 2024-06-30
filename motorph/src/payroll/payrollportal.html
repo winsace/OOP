@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        .sidebar-link {
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 0.375rem; /* Static rounded corners */
+            padding: 0.5rem 1rem; /* Increase padding for better spacing */
+        }
+
+        .sidebar-link:hover {
+            background-color: #E5E7EB; /* Lighter background on hover */
+            color: #000; /* Change text color on hover */
+        }
+
+        .nested {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .bg-gradient-sidebar {
+            background: linear-gradient(90deg, rgba(76, 175, 80, 1) 0%, rgba(49, 220, 255, 1) 100%);
+            border-radius: 1rem; /* Rounded corners for sidebar */
+        }
+
+        .sidebar-container {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for sidebar */
+        }
+
+        .header-background {
+            background: rgba(0, 0, 0, 0.2); /* Semi-transparent background for header */
+            padding: 1rem; /* Padding for header */
+            border-radius: 0.5rem; /* Rounded corners for header */
+        }
+
+        .separator {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.3); /* Light white color for separator */
+            margin: 0.5rem 0; /* Margin for spacing */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="sidebar-container bg-gradient-sidebar text-white w-1/4 flex flex-col justify-between p-4">
+            <div class="py-4 px-6">
+                <div class="header-background">
+                    <h1 class="text-2xl font-bold text-center">Payroll Admin Dashboard</h1>
+                </div>
+                <ul class="mt-6 space-y-4">
+                    <li><a href="#" onclick="showDashboard()" class="block sidebar-link">Home</a></li>
+                    <div class="separator"></div>
+                    <li><a href="#" onclick="viewOwnProfile()" class="block sidebar-link">My Profile</a></li>
+                    <div class="separator"></div>
+                    <li>
+                        <a href="#" onclick="toggleSubMenu('ticketSubMenu')" class="block sidebar-link">Ticket Management</a>
+                        <ul id="ticketSubMenu" class="nested">
+                            <li><a href="#" onclick="viewMyTicket()" class="block py-2 px-4 text-sm pl-8">My Ticket</a></li>
+                            <li><a href="#" onclick="actionServiceRequest()" class="block py-2 px-4 text-sm pl-8">Action Service Request</a></li>
+                            <li><a href="#" onclick="loadTicketManagement()" class="block py-2 px-4 text-sm pl-8">Create Service Request Ticket</a></li>
+                        </ul>
+                    </li>
+                    <div class="separator"></div>
+                    <li>
+                        <a href="#" onclick="toggleSubMenu('timesheetSubMenu')" class="block sidebar-link">Timesheet Management</a>
+                        <ul id="timesheetSubMenu" class="nested">
+                            <li><a href="#" onclick="submitTimeEntry()" class="block py-2 px-4 text-sm pl-8">Time Entry</a></li>
+                            <li><a href="#" onclick="viewMyTimesheet()" class="block py-2 px-4 text-sm pl-8">My Timesheet</a></li>
+                        </ul>
+                    </li>
+                    <div class="separator"></div>
+                    <li>
+                        <a href="#" onclick="toggleSubMenu('leaveSubMenu')" class="block sidebar-link">Leave Management</a>
+                        <ul id="leaveSubMenu" class="nested">
+                            <li><a href="#" onclick="viewMyLeaveRequest()" class="block py-2 px-4 text-sm pl-8">My Leave Request</a></li>
+                            <li><a href="#" onclick="submitLeaveRequest()" class="block py-2 px-4 text-sm pl-8">Submit Leave Request</a></li>
+                        </ul>
+                    </li>
+                    <div class="separator"></div>
+                    <li>
+                        <a href="#" onclick="toggleSubMenu('payrollSubMenu')" class="block sidebar-link">Payroll Management</a>
+                        <ul id="payrollSubMenu" class="nested">
+                            <li><a href="#" onclick="viewMyPayslip()" class="block py-2 px-4 text-sm pl-8">My Payslip</a></li>
+                            <li><a href="#" onclick="payslipGenerator()" class="block py-2 px-4 text-sm pl-8">Payslip Calculator</a></li>
+                            <li><a href="#" onclick="openCompensationDocument()" class="block py-2 px-4 text-sm pl-8">Employee Compensation Report</a></li>
+                            <li><a href="#" onclick="openPayslipDocument()" class="block py-2 px-4 text-sm pl-8">Employee Payslip Report</a></li>
+                            <li><a href="#" onclick="openPayslipSummaryDocument()" class="block py-2 px-4 text-sm pl-8">Employee Payslip Summary Report</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="py-4 px-6">
+                <button id="logoutButton" class="block py-2 px-4 bg-red-600 text-white rounded-md" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div id="mainContent" class="flex-1 p-8">
+            <!-- Main content goes here -->
+            <h2 id="welcomeMessage" class="text-3xl font-bold text-center text-gray-800">Welcome to Payroll Admin Dashboard</h2>
+            <div id="clock" class="text-center mt-4 text-gray-600"></div>
+        </div>
+    </div>
+
+    <!-- Logout confirmation modal -->
+    <div id="logoutModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-4 rounded-md">
+            <p class="text-lg text-center text-gray-800">Are you sure you want to sign out?</p>
+            <div class="mt-4 flex justify-center">
+                <button id="confirmLogout" class="bg-red-600 text-white px-4 py-2 rounded-md mr-2" onclick="confirmLogout()">Yes</button>
+                <button id="cancelLogout" class="bg-gray-300 px-4 py-2 rounded-md" onclick="cancelLogout()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="payrollportal.js"></script>
+</body>
+</html>
