@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Profile</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <div class="text-center"> <!-- Center the heading -->
+            <h1 class="text-3xl font-semibold mb-4">View Profile</h1>
+        </div>
+        <form id="viewProfileForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-auto max-w-md">
+            <!-- Form fields -->
+            <!-- Employee ID -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="employeeID">Employee ID:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="employeeID" name="employeeID" type="number" min="1" readonly>
+            </div>
+            <!-- Last Name -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="lastName">Last Name:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="lastName" name="lastName" type="text" readonly>
+            </div>
+            <!-- First Name -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="firstName">First Name:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="firstName" name="firstName" type="text" readonly>
+            </div>
+            <!-- Birthday -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="birthday">Birthday:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="birthday" name="birthday" type="date" readonly>
+            </div>
+            <!-- Address -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="address">Address:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address" name="address" type="text" readonly>
+            </div>
+            <!-- Phone Number -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="phoneNumber">Phone Number:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phoneNumber" name="phoneNumber" type="text" readonly>
+            </div>
+            <!-- SSS -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="sss">SSS:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sss" name="sss" type="text" readonly>
+            </div>
+            <!-- PhilHealth -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="philhealth">PhilHealth:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="philhealth" name="philhealth" type="text" readonly>
+            </div>
+            <!-- TIN -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="tin">TIN:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="tin" name="tin" type="text" readonly>
+            </div>
+            <!-- Pag-IBIG -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="pagibig">Pag-IBIG:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="pagibig" name="pagibig" type="text" readonly>
+            </div>
+            <!-- Status -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="status">Status:</label>
+                <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="status" name="status" disabled>
+                    <option value="">Select Status</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Probationary">Probationary</option>
+                </select>
+            </div>
+            <!-- Position -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="position">Position:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="position" name="position" type="text" readonly>
+            </div>
+            <!-- Immediate Supervisor -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="immediateSupervisor">Immediate Supervisor:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="immediateSupervisor" name="immediateSupervisor" type="text" readonly>
+            </div>
+            <!-- Update and Reset Buttons -->
+            <div class="flex items-center justify-between">
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="updateBtn" type="button">Update</button>
+                <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="resetBtn" type="button">Reset</button>
+            </div>
+        </form>
+        <div id="message" class="text-center text-red-500 font-bold mt-4"></div>
+    </div>
+    <!-- Include the JavaScript file -->
+    <script src="viewprofile.js"></script>
+</body>
+</html>

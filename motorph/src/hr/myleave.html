@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Leave</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for layout */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .select-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .search-btn {
+            align-self: flex-end;
+            margin-top: auto;
+        }
+
+        #leaveTable {
+            grid-column: span 4;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #e2e8f0; /* Add border to the table */
+        }
+
+        th, td {
+            border: 1px solid #e2e8f0; /* Add border to table cells */
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+    <div class="bg-white shadow-md rounded p-4 max-w-3xl w-full">
+        <h1 class="text-center text-2xl font-semibold mb-4">My Leave</h1>
+        <div class="container">
+            <div class="select-wrapper hidden"> <!-- Hidden for single employee selection -->
+                <label for="employeeSelect" class="block text-sm font-medium text-gray-700">Select Employee:</label>
+                <select id="employeeSelect" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="1">Employee 2</option> <!-- Default employee selected -->
+                </select>
+            </div>
+            <div class="select-wrapper">
+                <label for="startDateInput" class="block text-sm font-medium text-gray-700">Start Date:</label>
+                <input type="date" id="startDateInput" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <div class="select-wrapper">
+                <label for="endDateInput" class="block text-sm font-medium text-gray-700">End Date:</label>
+                <input type="date" id="endDateInput" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <button id="searchBtn" class="search-btn bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">Search</button>
+        </div>
+        <div id="leaveTable">
+            <table>
+                <thead>
+                    <tr id="tableHeader">
+                        <th>Employee ID</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Type of Leave</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="leaveTableBody">
+                    <!-- Leave data will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="myleave.js"></script>
+</body>
+</html>

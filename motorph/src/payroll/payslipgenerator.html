@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payslip Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        .text-sm {
+            font-size: 0.875rem; /* Adjust font size smaller */
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            window.scrollTo(0, 0); // Scrolls to the top of the page when loaded
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div class="w-96 mx-auto p-4 bg-white rounded-lg shadow-lg overflow-auto">
+        <h1 class="text-2xl font-bold mb-4 text-center">Payslip Calculator</h1>
+        <div id="employeeInfo" class="mb-4">
+            <h2 class="text-lg font-semibold mb-2">EMPLOYEE INFORMATION SECTION</h2>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Employee ID:</label>
+                <select id="employeeSelect" class="w-2/3 px-3 py-2 border rounded-md"></select>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Last Name:</label>
+                <p id="lastName" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">First Name:</label>
+                <p id="firstName" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">SSS Number:</label>
+                <p id="sssNumber" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Philhealth Number:</label>
+                <p id="philhealthNumber" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">TIN Number:</label>
+                <p id="tinNumber" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Pagibig Number:</label>
+                <p id="pagibigNumber" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Basic Salary:</label>
+                <p id="basicSalary" class="text-gray-700 text-sm"></p>
+            </div>
+        </div>
+        <div id="earningsSection" class="mb-4">
+            <h2 class="text-lg font-semibold mb-2">EARNINGS SECTION</h2>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Gross Earnings:</label>
+                <p id="grossEarnings" class="text-gray-700 text-sm"></p>
+            </div>
+        </div>
+        <div id="allowancesSection" class="mb-4">
+            <h2 class="text-lg font-semibold mb-2">NON TAXABLE ALLOWANCES SECTION</h2>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Rice Subsidy:</label>
+                <p id="riceSubsidy" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Phone Allowance:</label>
+                <p id="phoneAllowance" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Clothing Allowance:</label>
+                <p id="clothingAllowance" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Gross Allowances:</label>
+                <p id="grossAllowances" class="text-gray-700 text-sm"></p>
+            </div>
+        </div>
+        <div id="deductionsSection" class="mb-4">
+            <h2 class="text-lg font-semibold mb-2">DEDUCTIONS SECTION</h2>
+            <div class="info-item mb-2">
+                <label class="block text-sm">SSS Deduction:</label>
+                <p id="sssDeduction" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Philhealth Deduction:</label>
+                <p id="philhealthDeduction" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Pagibig Deduction:</label>
+                <p id="pagibigDeduction" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Withholding Tax:</label>
+                <p id="withholdingTax" class="text-gray-700 text-sm"></p>
+            </div>
+            <div class="info-item mb-2">
+                <label class="block text-sm">Gross Deductions:</label>
+                <p id="grossDeductions" class="text-gray-700 text-sm"></p>
+            </div>
+        </div>
+        <div id="netPaySection" class="mb-4">
+            <h2 class="text-lg font-semibold mb-2">NET PAY:</h2>
+            <p id="netPay" class="text-gray-700 text-sm"></p>
+        </div>
+        <div class="flex justify-center">
+            <button id="calculateButton" class="px-4 py-2 bg-blue-500 text-white rounded-md mr-2">Calculate</button>
+        </div>
+    </div>
+
+    <script src="payslipgenerator.js"></script>
+</body>
+</html>
